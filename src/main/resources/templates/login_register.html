@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" th:href="@{/css/materialize.min.css}" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/seam.css}" media="screen,projection"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<nav class="transparent accent-4">
+    <div th:replace="common/head :: head"></div>
+</nav>
+
+<div class="nav-content">
+    <ul class="tabs tabs-transparent center hide-on-med-and-down">
+        <li class="tab"><a href="#test1" class="active"><font color="black">LOGIN</font></a></li>
+        <li class="tab"><a href="#test2"><font color="black">REGISTER</font></a></li>
+    </ul>
+</div>
+
+<div id="test1" class="col s12">
+    <div class="container center-align">
+        <div class="row">
+            <form class="col s12" th:action="@{/login}" method="post">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="email" id="email" type="email" class="validate">
+                        <label for="email"><p>Email:</p></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 font-color">
+                        <input name="password" id="password" type="password" class="validate">
+                        <label for="password"><p>Password:</p></label>
+                    </div>
+                </div>
+                <button type="submit" class="btn waves-effect waves-light">Login</button>
+                <!--  <a class="waves-effect waves-light btn" href="home.html">Login</a> -->
+                <div class="card-panel font-color">
+                    <lable>Sign in with your email and password</lable>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<div id="test2" class="col s12">
+    <div class="container center-align">
+        <div class="row">
+            <form class="col s12" th:action="@{/register}" method="post">
+
+                <input type="hidden" name="image"/>
+                <input type="hidden" name="message"/>
+                <input type="hidden" name="phone"/>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="email" id="last_name" type="text" class="validate">
+                        <label for="last_name">Email:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="firstname" id="first_name" type="text" class="validate">
+                        <label for="first_name">First name:</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="lastname" id="last_name" type="text" class="validate">
+                        <label for="last_name">Last name:</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="password" placeholder=" Your password must contain 8 characters minimum and the following 3 character types:uppercase,lowercase and numbers"
+                               id="password" type="password" class="validate">
+                        <label for="password">Password:</label>
+
+                    </div>
+                </div>
+                <button type="submit" class="btn waves-effect waves-light">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script th:src="@{/js/jquery.leanModal.min.js}" type="text/javascript"></script>
+<script type="text/javascript" th:src="@{/js/ajax.js}"></script>
+<script type="text/javascript" th:src="@{/js/materialize.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bgora.bgora.mapper.AccountMapper">
+  <resultMap id="BaseResultMap" type="com.bgora.bgora.pojo.Account">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="firstname" jdbcType="VARCHAR" property="firstname" />
+    <result column="lastname" jdbcType="VARCHAR" property="lastname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="message" jdbcType="VARCHAR" property="message" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+</mapper>
