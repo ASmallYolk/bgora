@@ -10,7 +10,7 @@ public class Question {
 
     private String question;
 
-    private String like;
+    private Integer like;
 
     private Date time;
 
@@ -59,14 +59,14 @@ public class Question {
     /**
      * @return like
      */
-    public String getLike() {
+    public Integer getLike() {
         return like;
     }
 
     /**
      * @param like
      */
-    public void setLike(String like) {
+    public void setLike(Integer like) {
         this.like = like;
     }
 
