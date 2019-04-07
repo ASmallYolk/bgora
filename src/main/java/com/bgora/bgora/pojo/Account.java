@@ -1,15 +1,10 @@
 package com.bgora.bgora.pojo;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.data.annotation.CreatedDate;
-
 import java.util.Date;
 import javax.persistence.*;
 
 public class Account {
-
-
-    private Integer id;
+    private Integer aid;
 
     private String firstname;
 
@@ -25,22 +20,20 @@ public class Account {
 
     private String phone;
 
-    @CreatedDate
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date time;
 
     /**
-     * @return id
+     * @return aid
      */
-    public Integer getId() {
-        return id;
+    public Integer getAid() {
+        return aid;
     }
 
     /**
-     * @param id
+     * @param aid
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setAid(Integer aid) {
+        this.aid = aid;
     }
 
     /**

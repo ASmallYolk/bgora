@@ -31,5 +31,6 @@
 
         <table tableName="account"></table>
         <table tableName="question"></table>
+        <table tableName="answer"></table>
     </context>
 </generatorConfiguration>

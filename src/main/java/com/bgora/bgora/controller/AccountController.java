@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
+import java.util.Date;
 
 @Controller
 public class AccountController {
@@ -18,33 +18,12 @@ public class AccountController {
     AccountService accountService;
 
     @RequestMapping("/doLogin")
-    public String doLogin(){
+    public String doLogin() {
         return "login_register";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(Account account,Model model){
-        List<Account> accountList = accountService.accountList();
-        boolean isExist = false;
-        for (int i = 0; i < accountList.size(); i++) {
-            if (accountList.get(0).getEmail().equals(account.getEmail()))
-                isExist = true;
-        }
-        if (isExist){
-            model.addAttribute("error", "邮箱已存在!");
-        }else {
-            int result = accountService.addAccount(account);
-            if (result == 1){
-                model.addAttribute("error", "注册成功!");
-            } else {
-                model.addAttribute("error", "注册失败!");
-            }
-        }
-        return "redirect:/doLogin";
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(Account account, Model model, HttpSession session){
+    public String login(Account account, Model model, HttpSession session) {
         Account user = accountService.login(account);
         if (user != null) {
             session.setAttribute("user", user);
@@ -56,9 +35,22 @@ public class AccountController {
     }
 
     @RequestMapping("/logout")
-    public String logout(HttpSession session){
+    public String logout(HttpSession session) {
         session.setAttribute("user", null);
         return "redirect:/home";
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String register(Account account, Model model) {
+        account.setTime(new Date());
+        int result = accountService.addAccount(account);
+        if (result == 1) {
+            model.addAttribute("error", "注册成功!");
+        } else {
+            model.addAttribute("error", "注册失败!");
+        }
+
+        return "redirect:/doLogin";
     }
 }
 

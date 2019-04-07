@@ -16,8 +16,16 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Integer addAccount(Account account) {
-        Integer result = accountMapper.insert(account);
-        return result;
+        Account tempAccount = new Account();
+        tempAccount.setEmail(account.getEmail());
+        Account exitsAccount = equrySingleAccount(tempAccount);
+
+        if (exitsAccount != null){
+            return -1;
+        } else {
+            Integer result = accountMapper.insert(account);
+            return result;
+        }
     }
 
     @Override
@@ -29,5 +37,11 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public List<Account> accountList() {
         return accountMapper.selectAll();
+    }
+
+    @Override
+    public Account equrySingleAccount(Account account) {
+        return accountMapper.selectOne(account);
+
     }
 }

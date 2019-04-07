@@ -14,4 +14,7 @@ public interface AccountService {
 
     //查询所有用户
     List<Account> accountList();
+
+    //查询一个account
+    public Account equrySingleAccount(Account account);
 }

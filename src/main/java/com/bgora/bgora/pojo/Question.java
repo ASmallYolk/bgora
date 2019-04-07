@@ -10,8 +10,6 @@ public class Question {
 
     private String question;
 
-    private String answer;
-
     private String like;
 
     private Date time;
@@ -56,20 +54,6 @@ public class Question {
      */
     public void setQuestion(String question) {
         this.question = question;
-    }
-
-    /**
-     * @return answer
-     */
-    public String getAnswer() {
-        return answer;
-    }
-
-    /**
-     * @param answer
-     */
-    public void setAnswer(String answer) {
-        this.answer = answer;
     }
 
     /**

@@ -26,7 +26,8 @@
     <img src="images/head.jpg"/>
     <form class="col s12">
         <h5>Contact</h5>
-        <label><span th:if="${session.user != null}" th:text="${session.user.email}"/> | Tel: <span th:if="${session.user != null}" th:text="${session.user.phone}"/></label><br>
+        <label><span th:if="${session.user != null}" th:text="${session.user.email}"/> | Tel: <span
+                th:if="${session.user != null}" th:text="${session.user.phone}"/></label><br>
         <a class="btn btn-floating pulse" href="search.html"><i class="material-icons">edit</i></a>
 
         <a class="btn btn-floating  pulse"><i class="material-icons">delete</i></a>
@@ -38,7 +39,10 @@
                             <div class="collapsible-header">
                                 <i class="material-icons circle red lighten-1"></i>
                                 <span class="black-text">Name</span>
-                                <a class="secondary-content blue-text text-accent-3"><span th:if="${session.user != null}" th:text="${session.user.lastname}+${session.user.firstname}"/></a><!-- 在这里传入名字 -->
+                                <a class="secondary-content blue-text text-accent-3"><span
+                                        th:if="${session.user != null}"
+                                        th:text="${session.user.lastname}+''+${session.user.firstname}"/></a>
+                                <!-- 在这里传入名字 -->
                             </div>
 
                         </li>
@@ -46,7 +50,8 @@
                             <div class="collapsible-header">
                                 <i class="material-icons circle green"></i>
                                 <span class="black-text">Email</span>
-                                <a href="#!" class="secondary-content blue-text text-accent-3"><span th:if="${session.user != null}" th:text="${session.user.email}"/></a>
+                                <a href="#!" class="secondary-content blue-text text-accent-3"><span
+                                        th:if="${session.user != null}" th:text="${session.user.email}"/></a>
                                 <!-- 在这里传入邮箱/pass the expense class here -->
                             </div>
 
@@ -55,7 +60,8 @@
                             <div class="collapsible-header">
                                 <i class="material-icons circle blue"></i>
                                 <span class="black-text">Phone</span>
-                                <a href="#!" class="secondary-content blue-text text-accent-3"><span th:if="${session.user != null}" th:text="${session.user.phone}"/></a>
+                                <a href="#!" class="secondary-content blue-text text-accent-3"><span
+                                        th:if="${session.user != null}" th:text="${session.user.phone}"/></a>
                                 <!-- 在这里传入电话号码/input the number here -->
                             </div>
 
@@ -65,10 +71,10 @@
                             <div class="collapsible-header">
                                 <i class="material-icons circle yellow"></i>
                                 <span class="black-text">Message</span>
-                                <a href="#!" class="secondary-content blue-text text-accent-3"><span th:if="${session.user != null}" th:text="${session.user.message}"/></a><!-- 在这里传入参数/input the number here -->
+                                <a href="#!" class="secondary-content blue-text text-accent-3"><span
+                                        th:if="${session.user != null}" th:text="${session.user.message}"/></a>
+                                <!-- 在这里传入参数/input the number here -->
                             </div>
-
-
                         </li>
 
                     </ul>

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bgora.bgora.mapper.QuestionMapper">
-  <resultMap id="BaseResultMap" type="com.bgora.bgora.pojo.Question">
+<mapper namespace="com.bgora.bgora.mapper.AnswerMapper">
+  <resultMap id="BaseResultMap" type="com.bgora.bgora.pojo.Answer">
     <!--
       WARNING - @mbg.generated
     -->
+    <result column="anid" jdbcType="INTEGER" property="anid" />
+    <result column="aid" jdbcType="INTEGER" property="aid" />
     <result column="qid" jdbcType="INTEGER" property="qid" />
-    <result column="image" jdbcType="VARCHAR" property="image" />
-    <result column="question" jdbcType="VARCHAR" property="question" />
-    <result column="like" jdbcType="VARCHAR" property="like" />
     <result column="time" jdbcType="TIMESTAMP" property="time" />
   </resultMap>
 </mapper>
