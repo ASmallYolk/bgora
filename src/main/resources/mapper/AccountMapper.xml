@@ -15,4 +15,5 @@
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="time" jdbcType="TIMESTAMP" property="time" />
   </resultMap>
+
 </mapper>

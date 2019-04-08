@@ -10,7 +10,8 @@ public class Question {
 
     private String question;
 
-    private Integer like;
+    @Column(name = "like_num")
+    private Integer likeNum;
 
     private Date time;
 
@@ -57,17 +58,17 @@ public class Question {
     }
 
     /**
-     * @return like
+     * @return like_num
      */
-    public Integer getLike() {
-        return like;
+    public Integer getLikeNum() {
+        return likeNum;
     }
 
     /**
-     * @param like
+     * @param likeNum
      */
-    public void setLike(Integer like) {
-        this.like = like;
+    public void setLikeNum(Integer likeNum) {
+        this.likeNum = likeNum;
     }
 
     /**

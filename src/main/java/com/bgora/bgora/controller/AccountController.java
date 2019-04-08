@@ -30,7 +30,8 @@ public class AccountController {
             return "redirect:/home";
         } else {
             model.addAttribute("error", "用户名或密码错误，请重新登录！");
-            return "/login_register";
+            System.out.println("0000");
+            return "login_register";
         }
     }
 

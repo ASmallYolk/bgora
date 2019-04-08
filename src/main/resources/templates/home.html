@@ -20,144 +20,52 @@
 <br/>
 <div class="container center-align">
     <div class="row">
-        <div class="col s4">
+        <div class="col s4" th:each="questionItem : ${questionList}">
             <div class="card medium sticky-action">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="images/left.jpg">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Who's this modle?<i
+                    <!-- <span class="card-title activator grey-text text-darken-4">[[${questionItem.question}]]<i
+                             class="material-icons right">more_vert</i></span>-->
+                    <span class="card-title activator grey-text text-darken-4">[[${questionItem.question}]]<i
                             class="material-icons right">more_vert</i></span>
                 </div>
+
+
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Who's this modle?<i class="material-icons right">close</i></span>
-                    <p>This modle is Maria Lily,I know her very well</p>
+                    <span class="card-title grey-text text-darken-4">[[${questionItem.question}]]<i
+                            class="material-icons right">close</i></span>
+                    <p>
+                    <div class="row">
+                        <form class="col s12" th:action="@{/answer}" method="post">
+                            <input type="hidden" name="qid" th:value="${questionItem.qid}"/>
+                            <input type="hidden" name="aid" th:if="${session.user} !=null"
+                                   th:value="${session.user.aid}"/>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="textarea1" name="comment" class="materialize-textarea"></input>
+                                    <label for="textarea1">Comment</label>
+                                </div>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">send
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+
+                    </p>
                 </div>
+
+
                 <div class="card-action">
-                    <form class="col s12">
-                        <a class="btn btn-floating pulse left" href="search.html"><i
-                                class="material-icons ">thumb_up</i></a>
-                        <label class="right"><p>likes: 2</p></label>
-                    </form>
+                    <a class="btn btn-floating pulse left" th:href="@{/like(likeNum=${questionItem.likeNum})}"><i
+                            class="material-icons ">thumb_up</i></a>
+                    <label class="right"><p>likes: [[${questionItem.likeNum}]]</p></label>
                 </div>
             </div>
-
         </div>
-        <div class="col s4">
-            <div class="card medium sticky-action">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/left.jpg">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Who's this modle?<i
-                            class="material-icons right">more_vert</i></span>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Who's this modle?<i class="material-icons right">close</i></span>
-                    <p>This modle is Maria Lily,I know her very well</p>
-                </div>
-                <div class="card-action">
-                    <form class="col s12">
-                        <a class="btn btn-floating pulse left" href="search.html"><i
-                                class="material-icons ">thumb_up</i></a>
-                        <label class="right"><p>likes: 2</p></label>
-                    </form>
-                </div>
-            </div>
 
-        </div>
-        <div class="col s4">
-            <div class="card medium sticky-action">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/left.jpg">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Who's this modle?<i
-                            class="material-icons right">more_vert</i></span>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Who's this modle?<i class="material-icons right">close</i></span>
-                    <p>This modle is Maria Lily,I know her very well</p>
-                </div>
-                <div class="card-action">
-                    <form class="col s12">
-                        <a class="btn btn-floating pulse left" href="search.html"><i
-                                class="material-icons ">thumb_up</i></a>
-                        <label class="right"><p>likes: 2</p></label>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-        <div class="col s4">
-            <div class="card medium sticky-action">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/left.jpg">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Who's this modle?<i
-                            class="material-icons right">more_vert</i></span>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Who's this modle?<i class="material-icons right">close</i></span>
-                    <p>This modle is Maria Lily,I know her very well</p>
-                </div>
-                <div class="card-action">
-                    <form class="col s12">
-                        <a class="btn btn-floating pulse left" href="search.html"><i
-                                class="material-icons ">thumb_up</i></a>
-                        <label class="right"><p>likes: 2</p></label>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-        <div class="col s4">
-            <div class="card medium sticky-action">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/left.jpg">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Who's this modle?<i
-                            class="material-icons right">more_vert</i></span>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Who's this modle?<i class="material-icons right">close</i></span>
-                    <p>This modle is Maria Lily,I know her very well</p>
-                </div>
-                <div class="card-action">
-                    <form class="col s12">
-                        <a class="btn btn-floating pulse left" href="search.html"><i
-                                class="material-icons ">thumb_up</i></a>
-                        <label class="right"><p>likes: 2</p></label>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-        <div class="col s4">
-            <div class="card medium sticky-action">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="images/left.jpg">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Who's this modle?<i
-                            class="material-icons right">more_vert</i></span>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Who's this modle?<i class="material-icons right">close</i></span>
-                    <p>This modle is Maria Lily,I know her very well</p>
-                </div>
-                <div class="card-action">
-                    <form class="col s12">
-                        <a class="btn btn-floating pulse left" href="search.html"><i
-                                class="material-icons ">thumb_up</i></a>
-                        <label class="right"><p>likes: 2</p></label>
-                    </form>
-                </div>
-            </div>
-
-        </div>
     </div>
 </div>
 

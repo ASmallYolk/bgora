@@ -8,7 +8,8 @@
     <result column="qid" jdbcType="INTEGER" property="qid" />
     <result column="image" jdbcType="VARCHAR" property="image" />
     <result column="question" jdbcType="VARCHAR" property="question" />
-    <result column="like" jdbcType="INTEGER" property="like" />
+    <result column="like_num" jdbcType="INTEGER" property="likeNum" />
     <result column="time" jdbcType="TIMESTAMP" property="time" />
   </resultMap>
+
 </mapper>

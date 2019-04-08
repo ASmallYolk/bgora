@@ -9,5 +9,8 @@
     <result column="aid" jdbcType="INTEGER" property="aid" />
     <result column="qid" jdbcType="INTEGER" property="qid" />
     <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
   </resultMap>
+
+
 </mapper>

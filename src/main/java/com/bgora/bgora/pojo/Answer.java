@@ -22,6 +22,11 @@ public class Answer {
     private Date time;
 
     /**
+     * 评论
+     */
+    private String comment;
+
+    /**
      * 获取评论
      *
      * @return anid - 评论
@@ -87,5 +92,23 @@ public class Answer {
      */
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    /**
+     * 获取评论
+     *
+     * @return comment - 评论
+     */
+    public String getComment() {
+        return comment;
+    }
+
+    /**
+     * 设置评论
+     *
+     * @param comment 评论
+     */
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

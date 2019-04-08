@@ -33,7 +33,7 @@ public class AskController {
             model.addAttribute("error", "提交失败!");
         }
 
-        return "redirect:/ask";
+        return "redirect:/home";
     }
 
 }
