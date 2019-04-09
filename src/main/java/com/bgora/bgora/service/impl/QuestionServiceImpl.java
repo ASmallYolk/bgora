@@ -20,4 +20,13 @@ public class QuestionServiceImpl implements QuestionService {
         return result;
     }
 
+    @Override
+    public boolean updateLikeNum(int qid) {
+        boolean result = false;
+        questionMapper.updateByQid(qid);
+        result = true;
+
+        return false;
+    }
+
 }

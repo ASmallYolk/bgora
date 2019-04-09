@@ -18,4 +18,6 @@ public class HomeServiceImpl implements HomeService {
     public List<Question> questionList() {
         return questionMapper.selectAll();
     }
+
+
 }

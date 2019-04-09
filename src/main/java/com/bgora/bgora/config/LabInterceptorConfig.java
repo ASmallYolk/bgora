@@ -9,6 +9,7 @@ import com.bgora.bgora.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -25,5 +26,6 @@ public class LabInterceptorConfig implements WebMvcConfigurer {
         loginRegistry.excludePathPatterns("/home");
         loginRegistry.excludePathPatterns("/doLogin");
         loginRegistry.excludePathPatterns("/login");
+        loginRegistry.excludePathPatterns("/static/**");
     }
 }

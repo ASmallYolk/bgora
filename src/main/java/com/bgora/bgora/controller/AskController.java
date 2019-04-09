@@ -7,9 +7,10 @@ import com.bgora.bgora.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 @Controller
@@ -21,6 +22,14 @@ public class AskController {
     @RequestMapping("/ask")
     public String ask(){
         return "ask";
+    }
+
+    @RequestMapping(value = "/updateLikeNum", method = RequestMethod.GET)
+    public String updateLikeNum(@RequestParam("qid") int qid){
+        System.out.println(qid);
+        boolean result = questionService.updateLikeNum(qid);
+
+        return "redirect:/home";
     }
 
     @RequestMapping(value = "/question",method = RequestMethod.POST)
@@ -35,5 +44,6 @@ public class AskController {
 
         return "redirect:/home";
     }
+
 
 }

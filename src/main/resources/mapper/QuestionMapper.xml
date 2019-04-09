@@ -12,4 +12,9 @@
     <result column="time" jdbcType="TIMESTAMP" property="time" />
   </resultMap>
 
+  <update id="updateByQid" parameterType="com.bgora.bgora.pojo.Question" >
+        update question
+        set like_num=like_num+1
+        where qid=#{qid};
+    </update>
 </mapper>

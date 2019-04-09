@@ -16,4 +16,5 @@
     <result column="time" jdbcType="TIMESTAMP" property="time" />
   </resultMap>
 
+
 </mapper>
