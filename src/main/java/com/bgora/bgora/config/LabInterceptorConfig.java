@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
+//@Configuration
 public class LabInterceptorConfig implements WebMvcConfigurer {
 
     @Override
@@ -28,4 +28,6 @@ public class LabInterceptorConfig implements WebMvcConfigurer {
         loginRegistry.excludePathPatterns("/login");
         loginRegistry.excludePathPatterns("/static/**");
     }
+
+
 }

@@ -12,5 +12,9 @@
     <result column="comment" jdbcType="VARCHAR" property="comment" />
   </resultMap>
 
-
+  <select id="selectByQid" parameterType="com.bgora.bgora.pojo.Answer" resultType="com.bgora.bgora.pojo.Answer" >
+        select *
+        from answer
+        where qid=#{qid};
+    </select>
 </mapper>

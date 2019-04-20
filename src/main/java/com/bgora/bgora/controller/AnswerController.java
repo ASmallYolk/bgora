@@ -9,8 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class AnswerController {
@@ -30,6 +35,20 @@ public class AnswerController {
             }
         }
         return "redirect:/home";
+    }
+    //根据qid查看comment
+    @RequestMapping(value = "/selectByQid", method = RequestMethod.GET)
+    @ResponseBody
+    public List<String> selectByQid(@RequestParam("qid") int qid, Model model){
+        System.out.println("bbbb");
+        System.out.println("aaa"+qid);
+        List<Answer> commentList = answerService.selectByQid(qid);
+        Collections.reverse(commentList);
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < commentList.size(); i++) {
+            list.add(commentList.get(i).getComment());
+        }
+        return list;
     }
 
 }

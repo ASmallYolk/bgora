@@ -19,8 +19,10 @@ public class HomeController {
     @RequestMapping("/home")
     public String home1(Model model){
         List<Question> QuestionList = homeService.questionList();
+
         Collections.reverse(QuestionList);
         model.addAttribute("questionList",QuestionList);
+        System.out.println(QuestionList.size());
         return "home";
     }
 
