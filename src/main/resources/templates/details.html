@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" th:href="@{/css/materialize.min.css}" media="screen,projection"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/index.css}" media="screen,projection"/>
+</head>
+
+<body>
+<div th:replace="common/head :: head"></div>
+
+<div class="container center-align">
+    <div class="row" style="margin-top: 20px;width: 70%;margin-left: 15%">
+        <div class="col s4">
+            <img style="width: 200px" src="images/left.jpg"/>
+        </div>
+        <div class="col s8" style="margin-top: 16%">
+            <h5>What brand the cast is?</h5>
+            <div class="valign-wrapper" style="margin-top:60px;width:100%;height: 46px;float: left">
+                <input type="text" placeholder="Add a comment..."/>
+                <button class="btn" type="button" style="width: 160px;height: 32px;font-size: 11px">Add Comment</button>
+            </div>
+        </div>
+    </div>
+    <div style="height: 2px;width: 70%;margin-left: 15%;background: #e0e0e0"></div>
+
+    <div style="width: 70%;margin-left: 15%">
+        <ul class="collection left-align" style="border: none">
+            <li class="collection-item avatar" style="border-bottom: none">
+                <img src="images/head.jpg" alt="" class="circle">
+                <span class="title">Title</span>
+                <p>First Line Second Line</p>
+            </li>
+
+            <li class="collection-item avatar" style="border: none">
+                <img src="images/head.jpg" alt="" class="circle">
+                <span class="title">Title</span>
+                <p>First Line Second Line</p>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" th:src="@{/js/materialize.min.js}"></script>
+</body>
+</html>

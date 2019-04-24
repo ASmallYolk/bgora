@@ -29,8 +29,8 @@
         <javaClientGenerator targetPackage="com.bgora.bgora.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
 
 
-        <table tableName="account"></table>
+        <!--<table tableName="account"></table>-->
         <table tableName="question"></table>
-        <table tableName="answer"></table>
+        <!--<table tableName="answer"></table>-->
     </context>
 </generatorConfiguration>

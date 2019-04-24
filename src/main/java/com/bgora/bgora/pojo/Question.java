@@ -10,6 +10,8 @@ public class Question {
 
     private String question;
 
+    private String description;
+
     @Column(name = "like_num")
     private Integer likeNum;
 
@@ -55,6 +57,20 @@ public class Question {
      */
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    /**
+     * @return description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /**

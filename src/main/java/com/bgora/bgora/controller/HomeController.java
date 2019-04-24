@@ -26,6 +26,11 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping("/details")
+    public String details(){
+        return "details";
+    }
+
 
 
 }
