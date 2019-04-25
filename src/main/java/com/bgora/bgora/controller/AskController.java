@@ -4,9 +4,11 @@ import com.bgora.bgora.pojo.Account;
 import com.bgora.bgora.pojo.Question;
 import com.bgora.bgora.service.AccountService;
 import com.bgora.bgora.service.QuestionService;
+import com.bgora.bgora.utils.CustomConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,15 +33,22 @@ public class AskController {
 
     @RequestMapping(value = "/updateLikeNum", method = RequestMethod.GET)
     public String updateLikeNum(@RequestParam("qid") int qid){
-        System.out.println(qid);
-        boolean result = questionService.updateLikeNum(qid);
+//        boolean result = questionService.updateLikeNum(qid);
 
         return "redirect:/home";
     }
 
     @RequestMapping(value = "/question",method = RequestMethod.POST)
-    public String question1(Question question, Model model){
+    public String question1(Question question, @RequestParam("file") MultipartFile file, Model model) throws Exception{
         question.setTime(new Date());
+        String fileName = file.getOriginalFilename();
+        String filePath = ClassUtils.getDefaultClassLoader().getResource("").getPath() + CustomConstant.IMAGE_SAVE_PATH;
+
+        String imgPath = filePath + fileName;
+
+        question.setImage(fileName);
+        File dest = new File(imgPath);
+        file.transferTo(dest);
         int result = questionService.addQuestion(question);
         if (result == 1) {
             model.addAttribute("error", "提交成功!");
@@ -49,38 +58,6 @@ public class AskController {
 
         return "redirect:/home";
     }
-
-//    @RequestMapping("/recive/{devType}/{cmdLogId}")
-//    public void reciveCameraCapture(@PathVariable("devType") String devType, @PathVariable("cmdLogId") String cmdLogId,
-//                                    @RequestParam("captureImg") MultipartFile captureImg,
-//                                    @RequestParam(value = "cameraPreviewId", required = false) Long cameraPreviewId,
-//                                    @RequestParam("token") String token, HttpServletRequest request, HttpServletResponse response) {
-//        if (captureImg == null) {
-//            return;
-//        }
-//
-//        // 保存图片
-//        String filename = captureImg.getOriginalFilename();
-//        // 文件后缀名
-//        String prefix = filename.substring(filename.lastIndexOf(".") + 1);
-//        String destFilename = UUID.randomUUID().toString().replace("-", "") + "." + prefix;
-//
-//        File fileUrl = new File(uploadFolder + captureImagePath + devType);
-//
-//        if (!fileUrl.exists()) {
-//            fileUrl.mkdirs();
-//        }
-//
-//        File destImage = new File(fileUrl, destFilename);
-//
-//        logger.debug("图片保存地址为：" + destImage);
-//        try {
-//            captureImg.transferTo(destImage);
-//        } catch (IOException e) {
-//            logger.error("图片保存失败", e);
-//        }
-//    }
-
 
 
 }

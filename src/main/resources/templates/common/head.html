@@ -11,9 +11,8 @@
             <li><a class="font-color" th:href="@{/ask}">ASK</a></li>
             <li><a class="font-color" th:href="@{/contact}">CONTACT</a></li>
             <li th:if="${session.user} == null"><a class="font-color" th:href="@{/doLogin}">LOGIN/REGISTER</a></li>
+            <li th:if="${session.user} != null"><a class="waves-effect waves-light btn green darken-3" th:href="@{/logout}">LogOut</a></li>
         </ul>
-        <a th:if="${session.user} != null" class="waves-effect waves-light btn green darken-3" th:href="@{/logout}">LogOut</a>
-
     </div>
 </nav>
 </body>

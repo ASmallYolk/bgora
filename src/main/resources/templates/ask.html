@@ -20,29 +20,32 @@
                 <img src="images/head.jpg" class="circle responsive-img" style="width:80px;height: 80px;">
             </div>
             <div class="col s10">
-                <span>张琦</span><br/>
-                <span>Tel：18175136670</span>
+                <span th:if="${session.user != null}">[[${session.user.lastname}]][[${session.user.firstname}]]</span><br/>
+                <span th:if="${session.user != null}">Tel：[[${session.user.phone}]]</span>
             </div>
         </div>
     </div>
 
     <div class="row" style="margin-top: 20px;width: 70%;margin-left: 15%">
-        <form class="col s12" action="upload" method="post" enctype="multipart/form-data">
+        <form class="col s12" action="/question" method="post" enctype="multipart/form-data">
             <div class="row">
+
+                <input type="hidden" name="likeNum" value="0"/>
+
                 <div class="input-field col s12">
-                    <textarea id="icon_prefix" class="materialize-textarea" style="padding: 0;"></textarea>
+                    <textarea id="icon_prefix" name="question" class="materialize-textarea" style="padding: 0;"></textarea>
                     <label for="icon_prefix">Give this post a title</label>
                 </div>
 
                 <div class="input-field col s12">
-                    <textarea id="icon_prefix2" class="materialize-textarea" style="padding: 0;"></textarea>
-                    <label for="icon_prefix2">XXXX</label>
+                    <textarea id="icon_prefix2" name="description" class="materialize-textarea" style="padding: 0;"></textarea>
+                    <label for="icon_prefix2">Description</label>
                 </div>
 
                 <div class="file-field col s12">
                     <div class="btn">
                         <span>Image</span>
-                        <input type="file" name="image" accept="image/*">
+                        <input type="file" name="file" accept="image/*">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">

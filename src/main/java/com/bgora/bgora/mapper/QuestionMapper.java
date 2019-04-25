@@ -4,5 +4,5 @@ import com.bgora.bgora.pojo.Question;
 import com.bgora.bgora.utils.MyMapper;
 
 public interface QuestionMapper extends MyMapper<Question> {
-    int updateByQid(Integer qid);
+    Question selectQuestionByQid(Integer qid);
 }

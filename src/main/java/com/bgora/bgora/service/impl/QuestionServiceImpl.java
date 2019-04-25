@@ -21,12 +21,8 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public boolean updateLikeNum(int qid) {
-        boolean result = false;
-        questionMapper.updateByQid(qid);
-        result = true;
-
-        return false;
+    public Question selectQuestionByQid(Question question) {
+        return  questionMapper.selectOne(question);
     }
 
 }

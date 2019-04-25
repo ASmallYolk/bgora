@@ -15,13 +15,13 @@
 <div class="container center-align">
     <div class="row" style="margin-top: 20px;width: 70%;margin-left: 15%">
         <div class="col s4">
-            <img style="width: 200px" src="images/left.jpg"/>
+            <img style="width: 200px" th:src="${question.image}"/>
         </div>
-        <div class="col s8" style="margin-top: 16%">
-            <h5>What brand the cast is?</h5>
+        <div class="col s8" style="margin-top: 10%">
+            <h5>[[${question.question}]]</h5>
             <div class="valign-wrapper" style="margin-top:60px;width:100%;height: 46px;float: left">
                 <input type="text" placeholder="Add a comment..."/>
-                <button class="btn" type="button" style="width: 160px;height: 32px;font-size: 11px">Add Comment</button>
+                <button class="btn" type="button" style="width: 160px;height: 32px;font-size: 11px;margin-bottom: 5px">Add Comment</button>
             </div>
         </div>
     </div>
