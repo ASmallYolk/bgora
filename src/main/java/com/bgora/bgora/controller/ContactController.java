@@ -8,6 +8,6 @@ public class ContactController {
 
     @RequestMapping("/contact")
     public String contract(){
-        return "contact";
+        return "my_account";
     }
 }

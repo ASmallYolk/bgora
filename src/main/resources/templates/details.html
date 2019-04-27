@@ -19,20 +19,25 @@
         </div>
         <div class="col s8" style="margin-top: 10%">
             <h5>[[${question.question}]]</h5>
-            <div class="valign-wrapper" style="margin-top:60px;width:100%;height: 46px;float: left">
-                <input type="text" placeholder="Add a comment..."/>
-                <button class="btn" type="button" style="width: 160px;height: 32px;font-size: 11px;margin-bottom: 5px">Add Comment</button>
-            </div>
+            <form th:action="@{/answerComment}" method="post">
+                <div class="valign-wrapper" style="margin-top:60px;width:100%;height: 46px;float: left">
+                    <input type="hidden" name="aid" th:value="${session.user.aid}"/>
+                    <input type="hidden" name="qid" th:value="${question.qid}"/>
+                    <input type="text" name="comment" placeholder="Add a comment..."/>
+                    <button class="btn" type="submit"
+                            style="width: 160px;height: 32px;font-size: 11px;margin-bottom: 5px">Add</button>
+                </div>
+            </form>
         </div>
     </div>
     <div style="height: 2px;width: 70%;margin-left: 15%;background: #e0e0e0"></div>
 
     <div style="width: 70%;margin-left: 15%">
         <ul class="collection left-align" style="border: none">
-            <li class="collection-item avatar" style="border-bottom: none">
+            <li class="collection-item avatar" style="border-bottom: none" th:each="list : ${lists}">
                 <img src="images/head.jpg" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line Second Line</p>
+                <span class="title">[[${list.lastname}]][[${list.firstname}]]</span>
+                <p th:each="item : ${list.answers}">[[${item.comment}]]</p>
             </li>
 
             <li class="collection-item avatar" style="border: none">

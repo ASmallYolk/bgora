@@ -6,6 +6,8 @@ import javax.persistence.*;
 public class Question {
     private Integer qid;
 
+    private Integer aid;
+
     private String image;
 
     private String question;
@@ -29,6 +31,14 @@ public class Question {
      */
     public void setQid(Integer qid) {
         this.qid = qid;
+    }
+
+    public Integer getAid() {
+        return aid;
+    }
+
+    public void setAid(Integer aid) {
+        this.aid = aid;
     }
 
     /**

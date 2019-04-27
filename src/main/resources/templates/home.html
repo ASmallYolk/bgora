@@ -15,8 +15,8 @@
 <div class="container center-align">
 
     <div class="row" style="margin-top: 20px; margin-bottom: 20px">
-        <div class="col s6" align="right"><h4>ASK&ANSWER</h4></div>
-        <div class="col s6"><h6 class="left-align" style="line-height: 140%">Hey! Welcome to Bgora. Here is a ask-answer wonderland for stylish
+        <div class="col s6" align="right" style="padding-right: 20px"><h4>ASK&ANSWER</h4></div>
+        <div class="col s6"><h6 class="left-align" style="line-height: 150%;padding-right: 30px">Hey! Welcome to Bgora. Here is a ask-answer wonderland for stylish
             you. Do you like those stunning clothes wear in celebrities and models? Do you want to know what brand those
             items are? Click ASK, edit your question, there will be one answer you. Go!</h6></div>
     </div>
@@ -26,7 +26,7 @@
             <a th:href="@{/details(qid=${questionItem.qid})}">
                 <div class="card" style="margin: 10px;">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" height="300px" th:src="${questionItem.image}">
+                        <img class="activator" height="260px" th:src="${questionItem.image}">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4" th:text="${questionItem.question}">Card Title</span>

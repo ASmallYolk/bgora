@@ -31,13 +31,6 @@ public class AskController {
         return "ask";
     }
 
-    @RequestMapping(value = "/updateLikeNum", method = RequestMethod.GET)
-    public String updateLikeNum(@RequestParam("qid") int qid){
-//        boolean result = questionService.updateLikeNum(qid);
-
-        return "redirect:/home";
-    }
-
     @RequestMapping(value = "/question",method = RequestMethod.POST)
     public String question1(Question question, @RequestParam("file") MultipartFile file, Model model) throws Exception{
         question.setTime(new Date());

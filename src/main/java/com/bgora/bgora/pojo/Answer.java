@@ -17,6 +17,7 @@ public class Answer {
     /**
      * 问题ID
      */
+
     private Integer qid;
 
     private Date time;
@@ -110,5 +111,16 @@ public class Answer {
      */
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    @Override
+    public String toString() {
+        return "Answer{" +
+                "anid=" + anid +
+                ", aid=" + aid +
+                ", qid=" + qid +
+                ", time=" + time +
+                ", comment='" + comment + '\'' +
+                '}';
     }
 }

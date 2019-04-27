@@ -1,6 +1,7 @@
 package com.bgora.bgora.pojo;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 public class Account {
@@ -21,6 +22,8 @@ public class Account {
     private String phone;
 
     private Date time;
+
+    private List<Answer> answers;
 
     /**
      * @return aid
@@ -146,5 +149,30 @@ public class Account {
      */
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "aid=" + aid +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", password='" + password + '\'' +
+                ", image='" + image + '\'' +
+                ", email='" + email + '\'' +
+                ", message='" + message + '\'' +
+                ", phone='" + phone + '\'' +
+                ", time=" + time +
+                ", answers=" + answers +
+                '}';
     }
 }

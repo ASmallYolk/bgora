@@ -30,6 +30,8 @@
         <form class="col s12" action="/question" method="post" enctype="multipart/form-data">
             <div class="row">
 
+                <input type="hidden" name="aid" th:value="${session.user.aid}"/>
+
                 <input type="hidden" name="likeNum" value="0"/>
 
                 <div class="input-field col s12">

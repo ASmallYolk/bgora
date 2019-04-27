@@ -8,6 +8,8 @@ import com.bgora.bgora.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
@@ -21,8 +23,13 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public Question selectQuestionByQid(Question question) {
-        return  questionMapper.selectOne(question);
+    public Question selectQuestionByQid(Integer qid) {
+        return  questionMapper.selectQuestionByQid(qid);
+    }
+
+    @Override
+    public List<Question> selectQuestionByAid(Integer aid) {
+        return questionMapper.selectQuestionByAid(aid);
     }
 
 }

@@ -1,21 +1,30 @@
 package com.bgora.bgora.controller;
 
+import com.bgora.bgora.mapper.QuestionMapper;
 import com.bgora.bgora.pojo.Account;
+import com.bgora.bgora.pojo.Question;
 import com.bgora.bgora.service.AccountService;
+import com.bgora.bgora.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class AccountController {
 
     @Autowired
     AccountService accountService;
+
+    @Autowired
+    QuestionService questionService;
 
     @RequestMapping("/doLogin")
     public String doLogin() {
@@ -52,6 +61,15 @@ public class AccountController {
         }
 
         return "redirect:/doLogin";
+    }
+
+    @RequestMapping("/myAccount")
+    public String myAccount(@RequestParam(name = "aid") Integer aid, Model model){
+
+        List<Question> lists = questionService.selectQuestionByAid(aid);
+        Collections.reverse(lists);
+        model.addAttribute("lists",lists);
+        return "my_account";
     }
 }
 

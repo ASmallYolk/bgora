@@ -1,7 +1,9 @@
 package com.bgora.bgora.service.impl;
 
 import com.bgora.bgora.mapper.AccountMapper;
+import com.bgora.bgora.mapper.QuestionMapper;
 import com.bgora.bgora.pojo.Account;
+import com.bgora.bgora.pojo.Question;
 import com.bgora.bgora.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Autowired
     AccountMapper accountMapper;
+
 
     @Override
     public Integer addAccount(Account account) {
@@ -44,4 +47,7 @@ public class AccountServiceImpl implements AccountService {
         return accountMapper.selectOne(account);
 
     }
+
+
+
 }

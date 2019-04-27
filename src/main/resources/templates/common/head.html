@@ -8,8 +8,8 @@
         <a href="#" class="brand-logo" style="color: black">BGORA</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a class="font-color" th:href="@{/home}">HOME</a></li>
-            <li><a class="font-color" th:href="@{/ask}">ASK</a></li>
-            <li><a class="font-color" th:href="@{/contact}">CONTACT</a></li>
+            <li th:if="${session.user} != null"><a class="font-color" th:href="@{/ask}">ASK</a></li>
+            <li th:if="${session.user} != null"><a class="font-color" th:href="@{myAccount(aid=${session.user.aid})}">MY ACCOUNT</a></li>
             <li th:if="${session.user} == null"><a class="font-color" th:href="@{/doLogin}">LOGIN/REGISTER</a></li>
             <li th:if="${session.user} != null"><a class="waves-effect waves-light btn green darken-3" th:href="@{/logout}">LogOut</a></li>
         </ul>

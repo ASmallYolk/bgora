@@ -1,5 +1,6 @@
 package com.bgora.bgora.controller;
 
+import com.bgora.bgora.pojo.Account;
 import com.bgora.bgora.pojo.Question;
 import com.bgora.bgora.service.HomeService;
 import com.bgora.bgora.service.QuestionService;
@@ -34,15 +35,11 @@ public class HomeController {
     @RequestMapping("/details")
     public String details(@RequestParam(name = "qid") Integer qid,Model model){
 
-        Question question1 = new Question();
-        question1.setQid(qid);
-
-        Question question = questionService.selectQuestionByQid(question1);
+        Question question = questionService.selectQuestionByQid(qid);
         model.addAttribute("question",question);
-
+        List<Account> lists = homeService.answerByQid(qid);
+        System.out.println(lists.toString());
+        model.addAttribute("lists",lists);
         return "details";
     }
-
-
-
 }
