@@ -38,7 +38,7 @@ public class HomeController {
         Question question = questionService.selectQuestionByQid(qid);
         model.addAttribute("question",question);
         List<Account> lists = homeService.answerByQid(qid);
-        System.out.println(lists.toString());
+        Collections.reverse(lists);
         model.addAttribute("lists",lists);
         return "details";
     }
